@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Khallad Aljohani — IT Support Specialist &amp; Systems Administrator</title>
+<meta name="description" content="Khallad Abdullah Aljohani — IT Support Specialist and Systems Administrator based in Yanbu, Saudi Arabia. Windows deployment, LAN infrastructure, endpoint security, and full-stack development.">
+<meta name="author" content="Khallad Abdullah Aljohani">
+<meta property="og:title" content="Khallad Aljohani — IT Support Specialist & Systems Administrator">
+<meta property="og:description" content="IT Support Specialist at STC. Windows deployment, LAN infrastructure, endpoint security, database administration.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0B1220">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0B1220;
+    --bg-elevated:#0E1626;
+    --panel:#121C30;
+    --panel-2:#16223A;
+    --border:rgba(226,232,245,0.09);
+    --border-strong:rgba(226,232,245,0.16);
+    --text:#E7ECF5;
+    --text-dim:#8C97AC;
+    --text-faint:#5C6A81;
+    --accent:#49D3C7;
+    --accent-2:#5B8DEF;
+    --accent-soft:rgba(73,211,199,0.12);
+    --ok:#3DDC97;
+    --shadow: 0 20px 60px -20px rgba(0,0,0,0.55);
+    --radius:14px;
+    --maxw:1120px;
+    color-scheme: dark;
+  }
+  [data-theme="light"]{
+    --bg:#F5F7FB;
+    --bg-elevated:#FFFFFF;
+    --panel:#FFFFFF;
+    --panel-2:#EEF2F8;
+    --border:rgba(16,24,40,0.08);
+    --border-strong:rgba(16,24,40,0.14);
+    --text:#101828;
+    --text-dim:#4B5670;
+    --text-faint:#8992A6;
+    --accent:#0FA99A;
+    --accent-2:#3B6FE0;
+    --accent-soft:rgba(15,169,154,0.10);
+    --ok:#12965F;
+    --shadow: 0 20px 50px -24px rgba(16,24,40,0.18);
+    color-scheme: light;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+    transition:background .35s ease, color .35s ease;
+    line-height:1.6;
+  }
+  h1,h2,h3,.display{
+    font-family:'Space Grotesk',sans-serif;
+    letter-spacing:-0.01em;
+    margin:0;
+    color:var(--text);
+  }
+  .mono{font-family:'JetBrains Mono',monospace;}
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  section{scroll-margin-top:90px;}
+
+  .skip-link{
+    position:absolute; left:-999px; top:auto;
+    background:var(--accent); color:#04201C; padding:10px 16px;
+    border-radius:8px; z-index:200; font-weight:600;
+  }
+  .skip-link:focus{left:16px; top:16px;}
+
+  :focus-visible{
+    outline:2px solid var(--accent);
+    outline-offset:3px;
+    border-radius:4px;
+  }
+
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
+
+  /* ---------- NAV ---------- */
+  .nav{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    backdrop-filter:blur(14px) saturate(140%);
+    -webkit-backdrop-filter:blur(14px) saturate(140%);
+    background:color-mix(in srgb, var(--bg) 72%, transparent);
+    border-bottom:1px solid var(--border);
+  }
+  .nav .wrap{display:flex; align-items:center; justify-content:space-between; height:68px;}
+  .nav-logo{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:1.05rem; text-decoration:none; display:flex; align-items:center; gap:8px;}
+  .nav-logo .dot{width:8px;height:8px;border-radius:50%;background:var(--accent); box-shadow:0 0 0 4px var(--accent-soft);}
+  .nav-links{display:flex; gap:2rem; list-style:none; margin:0; padding:0;}
+  .nav-links a{
+    text-decoration:none; font-size:0.92rem; color:var(--text-dim); font-weight:500;
+    position:relative; padding:4px 0; transition:color .2s ease;
+  }
+  .nav-links a:hover{color:var(--text);}
+  .nav-links a::after{
+    content:""; position:absolute; left:0; bottom:-2px; width:0; height:1.5px;
+    background:var(--accent); transition:width .25s ease;
+  }
+  .nav-links a:hover::after{width:100%;}
+  .nav-right{display:flex; align-items:center; gap:18px;}
+  .nav-toggle-group{display:flex; align-items:center;}
+  .theme-toggle{
+    width:52px; height:28px; border-radius:20px; border:1px solid var(--border-strong);
+    background:var(--panel-2); position:relative; cursor:pointer; padding:0;
+  }
+  .theme-toggle .knob{
+    position:absolute; top:2px; left:2px; width:22px; height:22px; border-radius:50%;
+    background:linear-gradient(140deg,var(--accent),var(--accent-2));
+    transition:transform .3s cubic-bezier(.4,0,.2,1);
+  }
+  [data-theme="light"] .theme-toggle .knob{transform:translateX(24px);}
+  .nav-cta{
+    font-size:0.85rem; font-weight:600; padding:9px 16px; border-radius:9px;
+    background:var(--accent); color:#04201C; text-decoration:none; white-space:nowrap;
+  }
+  .menu-btn{display:none; background:none; border:none; color:var(--text); cursor:pointer;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative; padding:168px 0 96px; overflow:hidden;
+    border-bottom:1px solid var(--border);
+  }
+  .hero-net{
+    position:absolute; inset:0; z-index:0; opacity:.55; pointer-events:none;
+  }
+  [data-theme="light"] .hero-net{opacity:.35;}
+  .hero-inner{position:relative; z-index:1;}
+  .status-pill{
+    display:inline-flex; align-items:center; gap:8px; padding:6px 14px;
+    border:1px solid var(--border-strong); border-radius:30px; background:var(--panel);
+    font-size:0.8rem; color:var(--text-dim); margin-bottom:28px;
+  }
+  .status-pill .blip{width:7px;height:7px;border-radius:50%;background:var(--ok); box-shadow:0 0 0 3px rgba(61,220,151,0.18);}
+  @media (prefers-reduced-motion: no-preference){
+    .status-pill .blip{animation:pulse 2.4s ease-in-out infinite;}
+  }
+  @keyframes pulse{0%,100%{opacity:1;} 50%{opacity:.45;}}
+
+  .hero h1{font-size:clamp(2.4rem,5.4vw,4.1rem); font-weight:700; line-height:1.05; max-width:16ch;}
+  .hero .role{
+    margin-top:14px; font-size:clamp(1.05rem,2vw,1.3rem); color:var(--accent); font-weight:500;
+    font-family:'Space Grotesk',sans-serif;
+  }
+  .hero p.lead{
+    margin-top:22px; max-width:56ch; color:var(--text-dim); font-size:1.05rem;
+  }
+  .hero-actions{display:flex; gap:14px; margin-top:36px; flex-wrap:wrap;}
+  .btn-primary, .btn-ghost{
+    display:inline-flex; align-items:center; gap:8px; text-decoration:none;
+    font-weight:600; font-size:0.92rem; padding:13px 24px; border-radius:10px;
+    transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+  }
+  .btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent-2)); color:#04201C;}
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:var(--shadow);}
+  .btn-ghost{border:1px solid var(--border-strong); color:var(--text);}
+  .btn-ghost:hover{background:var(--panel);}
+
+  .stat-strip{
+    margin-top:64px; display:grid; grid-template-columns:repeat(4,1fr); gap:0;
+    border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; background:var(--panel);
+  }
+  .stat-strip div{padding:20px 22px; border-right:1px solid var(--border);}
+  .stat-strip div:last-child{border-right:none;}
+  .stat-num{font-family:'Space Grotesk',sans-serif; font-size:1.5rem; font-weight:700; color:var(--text);}
+  .stat-label{font-size:0.75rem; color:var(--text-faint); text-transform:uppercase; letter-spacing:.06em; margin-top:4px;}
+
+  /* ---------- SECTION HEADERS ---------- */
+  .sec-pad{padding:96px 0;}
+  .sec-head{margin-bottom:48px; max-width:640px;}
+  .sec-eyebrow{
+    font-family:'JetBrains Mono',monospace; font-size:0.78rem; color:var(--accent);
+    text-transform:uppercase; letter-spacing:.12em; margin-bottom:10px; display:block;
+  }
+  .sec-head h2{font-size:clamp(1.6rem,3vw,2.2rem);}
+  .sec-head p{color:var(--text-dim); margin-top:12px;}
+
+  .reveal{opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease;}
+  .reveal.is-visible{opacity:1; transform:translateY(0);}
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{display:grid; grid-template-columns:1.3fr 1fr; gap:40px; align-items:start;}
+  .about-text p{color:var(--text-dim); margin:0 0 16px;}
+  .about-text p:first-child{color:var(--text); font-size:1.08rem;}
+  .profile-card{
+    background:var(--panel); border:1px solid var(--border); border-radius:var(--radius);
+    padding:26px; box-shadow:var(--shadow);
+  }
+  .profile-card .row{
+    display:flex; justify-content:space-between; gap:16px; padding:12px 0;
+    border-bottom:1px solid var(--border); font-size:0.9rem;
+  }
+  .profile-card .row:last-child{border-bottom:none;}
+  .profile-card .row span:first-child{color:var(--text-faint); font-family:'JetBrains Mono',monospace; font-size:0.78rem; text-transform:uppercase; letter-spacing:.05em;}
+  .profile-card .row span:last-child{text-align:right; font-weight:500;}
+  .profile-card .row a{text-decoration:none; color:var(--accent);}
+
+  /* ---------- EXPERIENCE : INCIDENT LOG ---------- */
+  .log{border-left:1px solid var(--border); margin-left:6px; padding-left:0;}
+  .ticket{
+    position:relative; margin-left:28px; margin-bottom:36px; background:var(--panel);
+    border:1px solid var(--border); border-radius:var(--radius); padding:26px 28px;
+    box-shadow:var(--shadow);
+  }
+  .ticket::before{
+    content:""; position:absolute; left:-34px; top:30px; width:11px; height:11px; border-radius:50%;
+    background:var(--bg); border:2px solid var(--accent);
+  }
+  .ticket-head{display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin-bottom:6px;}
+  .ticket-id{font-family:'JetBrains Mono',monospace; font-size:0.78rem; color:var(--text-faint); letter-spacing:.03em;}
+  .ticket-status{
+    font-family:'JetBrains Mono',monospace; font-size:0.72rem; padding:3px 10px; border-radius:20px;
+    display:inline-flex; align-items:center; gap:6px; text-transform:uppercase; letter-spacing:.05em;
+  }
+  .ticket-status.active{background:rgba(61,220,151,0.12); color:var(--ok);}
+  .ticket-status.resolved{background:rgba(91,141,239,0.12); color:var(--accent-2);}
+  .ticket-status .d{width:6px;height:6px;border-radius:50%; background:currentColor;}
+  .ticket h3{font-size:1.2rem; margin-top:8px;}
+  .ticket .org{color:var(--accent); font-weight:500; font-size:0.95rem; margin-top:2px;}
+  .ticket .dates{color:var(--text-faint); font-size:0.82rem; font-family:'JetBrains Mono',monospace; margin-top:4px;}
+  .ticket ul{margin:16px 0 0; padding-left:20px; color:var(--text-dim);}
+  .ticket ul li{margin-bottom:8px; font-size:0.95rem;}
+
+  /* ---------- PROJECT ---------- */
+  .project-card{
+    background:var(--panel); border:1px solid var(--border); border-radius:var(--radius);
+    padding:36px; box-shadow:var(--shadow); position:relative; overflow:hidden;
+  }
+  .project-card::before{
+    content:""; position:absolute; top:0; left:0; right:0; height:3px;
+    background:linear-gradient(90deg,var(--accent),var(--accent-2));
+  }
+  .project-top{display:flex; justify-content:space-between; align-items:flex-start; gap:20px; flex-wrap:wrap;}
+  .project-top h3{font-size:1.5rem;}
+  .grade-badge{
+    font-family:'JetBrains Mono',monospace; font-weight:700; font-size:0.95rem;
+    color:#04201C; background:linear-gradient(135deg,var(--accent),var(--accent-2));
+    padding:8px 16px; border-radius:9px; white-space:nowrap;
+  }
+  .project-sub{color:var(--text-faint); font-size:0.85rem; margin-top:6px; font-family:'JetBrains Mono',monospace;}
+  .project-card ul{color:var(--text-dim); margin:20px 0 22px; padding-left:20px;}
+  .project-card ul li{margin-bottom:9px; font-size:0.96rem;}
+  .tag-row{display:flex; flex-wrap:wrap; gap:8px;}
+  .tag{
+    font-family:'JetBrains Mono',monospace; font-size:0.75rem; padding:5px 11px;
+    border:1px solid var(--border-strong); border-radius:6px; color:var(--text-dim);
+  }
+
+  /* ---------- SKILLS ---------- */
+  .skills-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  .skill-card{
+    background:var(--panel); border:1px solid var(--border); border-radius:var(--radius);
+    padding:24px; transition:border-color .2s ease, transform .2s ease;
+  }
+  .skill-card:hover{border-color:var(--border-strong); transform:translateY(-3px);}
+  .skill-card h3{font-size:1rem; margin-bottom:14px; display:flex; align-items:center; gap:10px;}
+  .skill-card h3 .ico{color:var(--accent);}
+  .skill-card .tag-row{gap:7px;}
+  .skill-card .tag{font-size:0.74rem; padding:4px 10px;}
+
+  /* ---------- CERTIFICATIONS ---------- */
+  .cert-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:16px;}
+  .cert-card{
+    background:var(--panel); border:1px solid var(--border); border-radius:12px;
+    padding:18px 20px; display:flex; gap:14px; align-items:flex-start;
+  }
+  .cert-card .mark{
+    flex-shrink:0; width:34px; height:34px; border-radius:9px; background:var(--accent-soft);
+    color:var(--accent); display:flex; align-items:center; justify-content:center;
+    font-family:'JetBrains Mono',monospace; font-weight:700; font-size:0.85rem;
+  }
+  .cert-card .name{font-weight:600; font-size:0.94rem;}
+  .cert-card .issuer{color:var(--text-faint); font-size:0.82rem; margin-top:2px;}
+
+  /* ---------- EDUCATION ---------- */
+  .edu-card{
+    background:var(--panel); border:1px solid var(--border); border-radius:var(--radius);
+    padding:32px; box-shadow:var(--shadow); display:flex; justify-content:space-between; gap:24px; flex-wrap:wrap;
+  }
+  .edu-card h3{font-size:1.25rem;}
+  .edu-card .school{color:var(--accent); margin-top:4px; font-weight:500;}
+  .edu-card .meta{color:var(--text-faint); font-size:0.85rem; font-family:'JetBrains Mono',monospace; margin-top:8px;}
+  .gpa-chip{
+    align-self:center; text-align:center; background:var(--panel-2); border:1px solid var(--border-strong);
+    border-radius:12px; padding:14px 22px; min-width:120px;
+  }
+  .gpa-chip .num{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:1.6rem; color:var(--accent);}
+  .gpa-chip .lbl{font-size:0.7rem; color:var(--text-faint); text-transform:uppercase; letter-spacing:.06em; margin-top:2px;}
+  .course-row{width:100%; margin-top:18px; padding-top:18px; border-top:1px solid var(--border);}
+  .course-row .tag-row{gap:8px;}
+
+  /* ---------- CONTACT / FOOTER ---------- */
+  .contact-band{
+    background:var(--bg-elevated); border-top:1px solid var(--border);
+    padding:96px 0 48px; text-align:center;
+  }
+  .contact-band h2{font-size:clamp(1.8rem,4vw,2.6rem); max-width:16ch; margin:0 auto;}
+  .contact-band p{color:var(--text-dim); margin:16px auto 34px; max-width:46ch;}
+  .contact-actions{display:flex; gap:14px; justify-content:center; flex-wrap:wrap;}
+  .contact-links{
+    margin-top:56px; display:flex; justify-content:center; gap:32px; flex-wrap:wrap;
+    font-size:0.88rem; color:var(--text-dim);
+  }
+  .contact-links a{text-decoration:none;}
+  .contact-links a:hover{color:var(--accent);}
+  footer .fine{margin-top:40px; color:var(--text-faint); font-size:0.8rem;}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:900px){
+    .about-grid{grid-template-columns:1fr;}
+    .skills-grid{grid-template-columns:repeat(2,1fr);}
+    .stat-strip{grid-template-columns:repeat(2,1fr);}
+    .stat-strip div:nth-child(2){border-right:none;}
+  }
+  @media (max-width:720px){
+    .nav-links{
+      position:fixed; top:68px; left:0; right:0; background:var(--bg);
+      border-bottom:1px solid var(--border); flex-direction:column; padding:20px 28px; gap:18px;
+      transform:translateY(-130%); transition:transform .3s ease; z-index:99;
+    }
+    .nav-links.open{transform:translateY(0);}
+    .menu-btn{display:block;}
+    .cert-grid{grid-template-columns:1fr;}
+    .skills-grid{grid-template-columns:1fr;}
+    .stat-strip{grid-template-columns:repeat(2,1fr);}
+    .edu-card{flex-direction:column;}
+    .gpa-chip{align-self:flex-start;}
+  }
+</style>
+</head>
+<body data-theme="dark">
+<a href="#main" class="skip-link">Skip to content</a>
+
+<header class="nav">
+  <div class="wrap">
+    <a href="#top" class="nav-logo" aria-label="Khallad Aljohani, home">
+      <span class="dot" aria-hidden="true"></span> KHALLAD.A
+    </a>
+    <nav aria-label="Primary">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#project">Project</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-right">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark and light theme" aria-pressed="false">
+        <span class="knob"></span>
+      </button>
+      <a class="nav-cta" href="mailto:khallad.a.aljohani@gmail.com">Contact</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navLinks">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="top">
+    <svg class="hero-net" id="heroNet" viewBox="0 0 1200 640" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <!-- populated by JS -->
+    </svg>
+    <div class="wrap hero-inner">
+      <span class="status-pill"><span class="blip" aria-hidden="true"></span> Available for opportunities — Yanbu, Saudi Arabia</span>
+      <h1>Khallad Abdullah Aljohani</h1>
+      <p class="role">IT Support Specialist &amp; Systems Administrator</p>
+      <p class="lead">Computer Information Systems graduate delivering end-user technical support at STC — skilled in Windows deployment and imaging, hardware troubleshooting, LAN configuration, and software lifecycle management, with a solid foundation in cybersecurity, endpoint security, and database administration.</p>
+      <div class="hero-actions">
+        <a href="#experience" class="btn-primary">View Experience</a>
+        <a href="#contact" class="btn-ghost">Get in Touch</a>
+      </div>
+      <div class="stat-strip reveal">
+        <div><div class="stat-num">4.62<span style="font-size:1rem;color:var(--text-faint);">/5.00</span></div><div class="stat-label">Degree GPA</div></div>
+        <div><div class="stat-num">A+</div><div class="stat-label">Capstone Grade</div></div>
+        <div><div class="stat-num">11</div><div class="stat-label">Certifications</div></div>
+        <div><div class="stat-num">2</div><div class="stat-label">Roles at STC</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec-pad" id="about">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="sec-eyebrow">// about</span>
+        <h2>Grounded in infrastructure, built for people</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p>Computer Information Systems graduate and IT Support Specialist with hands-on experience delivering end-user technical support at STC.</p>
+          <p>Skilled in Windows 10/11 deployment and imaging, hardware troubleshooting, LAN configuration, and software lifecycle management. Solid foundation in cybersecurity, endpoint security, and database administration.</p>
+          <p>Focused on maintaining reliable IT operations and optimizing system performance in enterprise environments — from diagnosing a single workstation to standardizing deployment across a fleet.</p>
+        </div>
+        <div class="profile-card reveal">
+          <div class="row"><span>Location</span><span>Yanbu, Saudi Arabia</span></div>
+          <div class="row"><span>Email</span><span><a href="mailto:khallad.a.aljohani@gmail.com">khallad.a.aljohani@gmail.com</a></span></div>
+          <div class="row"><span>Phone</span><span><a href="tel:+966533050959">+966 533 050 959</a></span></div>
+          <div class="row"><span>LinkedIn</span><span><a href="https://linkedin.com/in/khallad-a-aljohani" target="_blank" rel="noopener">khallad-a-aljohani</a></span></div>
+          <div class="row"><span>Degree</span><span>B.Sc. Computer Information Systems</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec-pad" id="experience" style="background:var(--bg-elevated); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="sec-eyebrow">// incident log</span>
+        <h2>Work experience</h2>
+        <p>Roles logged and resolved, in the order they came in.</p>
+      </div>
+      <div class="log">
+        <article class="ticket reveal">
+          <div class="ticket-head">
+            <span class="ticket-id">TCK-2025-002</span>
+            <span class="ticket-status active"><span class="d"></span>In Progress</span>
+          </div>
+          <h3>Technical Support Specialist</h3>
+          <div class="org">Upsource by Solutions — Outsourced to STC (Saudi Telecom Company)</div>
+          <div class="dates">Nov 2025 — Present · Yanbu, Saudi Arabia</div>
+          <ul>
+            <li>Provide first-line technical support for end users, diagnosing and resolving hardware, software, and network connectivity issues.</li>
+            <li>Log, track, and escalate incidents through the support ticketing process while maintaining accurate documentation of resolutions.</li>
+            <li>Collaborate with internal IT teams to resolve issues within service expectations and sustain high levels of user satisfaction.</li>
+          </ul>
+        </article>
+        <article class="ticket reveal">
+          <div class="ticket-head">
+            <span class="ticket-id">TCK-2024-001</span>
+            <span class="ticket-status resolved"><span class="d"></span>Resolved</span>
+          </div>
+          <h3>IT Intern — Information Technology</h3>
+          <div class="org">STC (Saudi Telecom Company)</div>
+          <div class="dates">Jun 2024 — Aug 2024 · Saudi Arabia</div>
+          <ul>
+            <li>Installed, configured, and imaged Windows OS across multiple workstations, standardizing deployment to reduce setup time.</li>
+            <li>Assembled PCs and replaced hardware components, resolving end-user issues to minimize downtime.</li>
+            <li>Configured LAN environments using Ethernet cabling and network settings to ensure stable connectivity for office endpoints.</li>
+            <li>Deployed software packages, enforced security update and patch policies, and supported the team in resolving help-desk tickets.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec-pad" id="project">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="sec-eyebrow">// case study</span>
+        <h2>Key project</h2>
+      </div>
+      <div class="project-card reveal">
+        <div class="project-top">
+          <div>
+            <h3>SANAD — Employee Management System</h3>
+            <div class="project-sub">Capstone Project · 6-member team · Waterfall SDLC</div>
+          </div>
+          <span class="grade-badge">GRADE A+</span>
+        </div>
+        <ul>
+          <li>Built a full-stack HR platform with a 6-member team; administered a normalized MySQL database with user roles and access control.</li>
+          <li>Developed the backend using Laravel and Node.js; performed unit and integration testing with zero critical bugs at submission.</li>
+          <li>Produced UML documentation following the Waterfall SDLC with defined milestones and deliverables.</li>
+        </ul>
+        <div class="tag-row">
+          <span class="tag">Laravel</span>
+          <span class="tag">Node.js</span>
+          <span class="tag">MySQL</span>
+          <span class="tag">UML</span>
+          <span class="tag">Access Control</span>
+          <span class="tag">Waterfall SDLC</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec-pad" id="skills" style="background:var(--bg-elevated); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="sec-eyebrow">// stack</span>
+        <h2>Technical skills</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-card reveal">
+          <h3><span class="ico">▣</span> Operating Systems</h3>
+          <div class="tag-row">
+            <span class="tag">Windows 10/11</span><span class="tag">OS Imaging</span><span class="tag">Patch Management</span><span class="tag">System Configuration</span>
+          </div>
+        </div>
+        <div class="skill-card reveal">
+          <h3><span class="ico">◈</span> Networking</h3>
+          <div class="tag-row">
+            <span class="tag">LAN Setup</span><span class="tag">Ethernet Cabling</span><span class="tag">TCP/IP</span><span class="tag">Network Troubleshooting</span>
+          </div>
+        </div>
+        <div class="skill-card reveal">
+          <h3><span class="ico">▢</span> Hardware</h3>
+          <div class="tag-row">
+            <span class="tag">PC Assembly</span><span class="tag">Component Diagnostics</span><span class="tag">Hardware Troubleshooting</span>
+          </div>
+        </div>
+        <div class="skill-card reveal">
+          <h3><span class="ico">◆</span> Security</h3>
+          <div class="tag-row">
+            <span class="tag">Cybersecurity Fundamentals</span><span class="tag">Endpoint Security</span><span class="tag">Access Management</span>
+          </div>
+        </div>
+        <div class="skill-card reveal">
+          <h3><span class="ico">▤</span> Databases</h3>
+          <div class="tag-row">
+            <span class="tag">MySQL</span><span class="tag">MongoDB</span><span class="tag">SQL</span><span class="tag">Schema Design</span>
+          </div>
+        </div>
+        <div class="skill-card reveal">
+          <h3><span class="ico">◇</span> Development &amp; Tools</h3>
+          <div class="tag-row">
+            <span class="tag">Python</span><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span><span class="tag">Laravel</span><span class="tag">Node.js</span><span class="tag">Git/GitHub</span><span class="tag">VS Code</span>
+          </div>
+        </div>
+        <div class="skill-card reveal">
+          <h3><span class="ico">✓</span> Support</h3>
+          <div class="tag-row">
+            <span class="tag">Incident Diagnosis</span><span class="tag">Escalation</span><span class="tag">Ticket Documentation</span><span class="tag">End-User Support</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec-pad" id="certifications">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="sec-eyebrow">// verified</span>
+        <h2>Certifications</h2>
+      </div>
+      <div class="cert-grid">
+        <div class="cert-card reveal"><span class="mark">CS</span><div><div class="name">Introduction to Cybersecurity</div><div class="issuer">Cisco</div></div></div>
+        <div class="cert-card reveal"><span class="mark">CS</span><div><div class="name">Cybersecurity</div><div class="issuer">STC Academy</div></div></div>
+        <div class="cert-card reveal"><span class="mark">PM</span><div><div class="name">Introduction to Project Management</div><div class="issuer">Coursera</div></div></div>
+        <div class="cert-card reveal"><span class="mark">&lt;/&gt;</span><div><div class="name">HTML Essentials</div><div class="issuer">JS Institute / Cisco</div></div></div>
+        <div class="cert-card reveal"><span class="mark">PY</span><div><div class="name">Python Programming Series (4 courses)</div><div class="issuer">University of Michigan / Coursera</div></div></div>
+        <div class="cert-card reveal"><span class="mark">MC</span><div><div class="name">McKinsey Forward Program</div><div class="issuer">McKinsey &amp; Company</div></div></div>
+        <div class="cert-card reveal"><span class="mark">IA</span><div><div class="name">Internal Audit</div><div class="issuer">STC Academy</div></div></div>
+        <div class="cert-card reveal"><span class="mark">DG</span><div><div class="name">Data Governance</div><div class="issuer">STC Academy</div></div></div>
+        <div class="cert-card reveal"><span class="mark">DG</span><div><div class="name">Data Governance Operating Model</div><div class="issuer">STC Academy</div></div></div>
+        <div class="cert-card reveal"><span class="mark">DP</span><div><div class="name">Data Protection &amp; Privacy</div><div class="issuer">STC Academy</div></div></div>
+        <div class="cert-card reveal"><span class="mark">AF</span><div><div class="name">Anti-Fraud</div><div class="issuer">STC Academy</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec-pad" id="education" style="background:var(--bg-elevated); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="sec-eyebrow">// education</span>
+        <h2>Education</h2>
+      </div>
+      <div class="edu-card reveal">
+        <div style="flex:1; min-width:240px;">
+          <h3>B.Sc. in Computer Information Systems</h3>
+          <div class="school">Taibah University</div>
+          <div class="meta">Jul 2020 — May 2025 · Second Class Honors</div>
+          <div class="course-row">
+            <div class="tag-row">
+              <span class="tag">Operating Systems</span>
+              <span class="tag">Networking</span>
+              <span class="tag">Database Systems</span>
+              <span class="tag">Cybersecurity</span>
+              <span class="tag">IT Project Management</span>
+              <span class="tag">Systems Analysis &amp; Design</span>
+            </div>
+          </div>
+        </div>
+        <div class="gpa-chip">
+          <div class="num">4.62</div>
+          <div class="lbl">GPA / 5.00</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-band" id="contact">
+    <div class="wrap">
+      <span class="sec-eyebrow reveal" style="display:block; text-align:center;">// contact</span>
+      <h2 class="reveal">Let's get your systems running smoothly</h2>
+      <p class="reveal">Open to opportunities in IT support, systems administration, and network infrastructure across Saudi Arabia.</p>
+      <div class="contact-actions reveal">
+        <a class="btn-primary" href="mailto:khallad.a.aljohani@gmail.com">Email Khallad</a>
+        <a class="btn-ghost" href="tel:+966533050959">Call +966 533 050 959</a>
+      </div>
+      <div class="contact-links reveal">
+        <a href="mailto:khallad.a.aljohani@gmail.com">khallad.a.aljohani@gmail.com</a>
+        <a href="https://linkedin.com/in/khallad-a-aljohani" target="_blank" rel="noopener">LinkedIn</a>
+        <span>Yanbu, Saudi Arabia</span>
+      </div>
+      <p class="fine">© <span id="year"></span> Khallad Abdullah Aljohani. Built with care.</p>
+    </div>
+  </section>
+</main>
+
+<script>
+(function(){
+  // Theme toggle with persistence
+  var root = document.body;
+  var toggle = document.getElementById('themeToggle');
+  var saved = localStorage.getItem('ka-theme');
+  var prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+  var initial = saved || (prefersLight ? 'light' : 'dark');
+  root.setAttribute('data-theme', initial);
+  toggle.setAttribute('aria-pressed', initial === 'light');
+
+  toggle.addEventListener('click', function(){
+    var current = root.getAttribute('data-theme');
+    var next = current === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    toggle.setAttribute('aria-pressed', next === 'light');
+    localStorage.setItem('ka-theme', next);
+  });
+
+  // Mobile menu
+  var menuBtn = document.getElementById('menuBtn');
+  var navLinks = document.getElementById('navLinks');
+  menuBtn.addEventListener('click', function(){
+    var open = navLinks.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', open);
+  });
+  navLinks.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      navLinks.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', false);
+    });
+  });
+
+  // Scroll reveal
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var reveals = document.querySelectorAll('.reveal');
+  if(reduceMotion || !('IntersectionObserver' in window)){
+    reveals.forEach(function(el){ el.classList.add('is-visible'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+    reveals.forEach(function(el){ io.observe(el); });
+  }
+
+  // Hero network graphic — simple node/line topology
+  var svgNS = "http://www.w3.org/2000/svg";
+  var svg = document.getElementById('heroNet');
+  var W = 1200, H = 640;
+  var nodes = [];
+  var count = 16;
+  for(var i=0;i<count;i++){
+    nodes.push({
+      x: Math.random()*W,
+      y: Math.random()*H*0.9 + H*0.05,
+      r: Math.random()*1.6 + 1.6
+    });
+  }
+  // connect nearby nodes
+  var maxDist = 260;
+  for(var a=0;a<nodes.length;a++){
+    for(var b=a+1;b<nodes.length;b++){
+      var dx = nodes[a].x-nodes[b].x, dy = nodes[a].y-nodes[b].y;
+      var d = Math.sqrt(dx*dx+dy*dy);
+      if(d < maxDist){
+        var line = document.createElementNS(svgNS,'line');
+        line.setAttribute('x1', nodes[a].x); line.setAttribute('y1', nodes[a].y);
+        line.setAttribute('x2', nodes[b].x); line.setAttribute('y2', nodes[b].y);
+        line.setAttribute('stroke', 'var(--accent)');
+        line.setAttribute('stroke-opacity', (1 - d/maxDist) * 0.25);
+        line.setAttribute('stroke-width', '1');
+        svg.appendChild(line);
+      }
+    }
+  }
+  nodes.forEach(function(n, idx){
+    var c = document.createElementNS(svgNS,'circle');
+    c.setAttribute('cx', n.x); c.setAttribute('cy', n.y); c.setAttribute('r', n.r);
+    c.setAttribute('fill', idx % 5 === 0 ? 'var(--accent-2)' : 'var(--accent)');
+    c.setAttribute('opacity', '0.7');
+    if(!reduceMotion){
+      var anim = document.createElementNS(svgNS,'animate');
+      anim.setAttribute('attributeName','opacity');
+      anim.setAttribute('values','0.25;0.85;0.25');
+      anim.setAttribute('dur', (4 + Math.random()*4) + 's');
+      anim.setAttribute('repeatCount','indefinite');
+      c.appendChild(anim);
+    }
+    svg.appendChild(c);
+  });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
